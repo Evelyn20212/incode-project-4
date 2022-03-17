@@ -13,24 +13,23 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
-
 // Get all schedules
 app.get("/", (req, res) => {
   db.any("SELECT * FROM schedule")
-    .then(schedule => {
+    .then((schedule) => {
       res.render("schedules", {
         title: "Schedules",
         schedule,
-        helper
+        helper,
       });
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.render("error", {
         errorCode: 500,
-        errorMessage: error.message
+        errorMessage: error.message,
       });
-    })
+    });
 });
 
 // Get new schedule form
@@ -42,25 +41,23 @@ app.get("/new", (req, res) => {
 
 // Post new schedule
 app.post("/new", (req, res) => {
-  const {username, day_of_week, start_time, end_time} = req.body;
+  const { username, day_of_week, start_time, end_time } = req.body;
 
-  db.none("INSERT INTO schedule(username, day_of_week, start_time, end_time) VALUES($1, $2, $3, $4)", [
-    username,
-    day_of_week,
-    start_time,
-    end_time
-  ])
-  .then(() => {
-    res.redirect("/new");
-  })
-  .catch(error => {
-    console.log(error);
-    res.render("error", {
-      title: "Error",
-      errorCode: 500,
-      errorMessage: error.message
+  db.none(
+    "INSERT INTO schedule(username, day_of_week, start_time, end_time) VALUES($1, $2, $3, $4)",
+    [username, day_of_week, start_time, end_time]
+  )
+    .then(() => {
+      res.redirect("/new");
+    })
+    .catch((error) => {
+      console.log(error);
+      res.render("error", {
+        title: "Error",
+        errorCode: 500,
+        errorMessage: error.message,
+      });
     });
-  });
 });
 
 // 404
@@ -68,7 +65,7 @@ app.get("*", (req, res) => {
   res.render("error", {
     title: "Error",
     errorCode: 404,
-    errorMessage: "This page does not exist."
+    errorMessage: "This page does not exist.",
   });
 });
 

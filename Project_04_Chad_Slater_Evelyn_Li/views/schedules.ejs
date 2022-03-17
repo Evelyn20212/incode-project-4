@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include("./partials/head") %>
-</head>
+  <head>
+    <%- include("./partials/head") %>
+  </head>
 
-<body>
-  <header>
-    <%- include("./partials/header") %>
-  </header>
+  <body>
+    <header><%- include("./partials/header") %></header>
 
-  <main>
-    <h1>Schedule Website</h1>
-    <h2>Schedules</h2>
+    <main>
+      <h1>Schedule Website</h1>
+      <h2>Schedules</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <% for (const property in schedule[0]) { %>
-            <th><%= capitalize(property) %></th>
-          <% } %>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% schedule.forEach(schedule => { %>
+      <table>
+        <thead>
           <tr>
-          <% for (const property in schedule) { %>
-            <% if (property === "user_id") { %>
-              <td>
-                <%= schedule[property] %>
-              </td>
+            <% for (const property in schedule[0]) { %>
+            <th><%= capitalize(property) %></th>
+            <% } %>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% schedule.forEach(schedule => { %>
+          <tr>
+            <% for (const property in schedule) { %> <% if (property ===
+            "user_id") { %>
+            <td><%= schedule[property] %></td>
             <% } else { %>
             <td><%= schedule[property] %></td>
-            <% } %> 
-          <% } %>
+            <% } %> <% } %>
           </tr>
-        <% }) %>
-      </tbody>
-      <tfoot>
-        <th colspan="<%= Object.keys(schedule[0]).length - 1 %>">Total Schedules</th>
-        <td colspan="1"><%= schedule.length %></td>
-      </tfoot>
-    </table> 
-  </main>
+          <% }) %>
+        </tbody>
+        <tfoot>
+          <th colspan="<%= Object.keys(schedule[0]).length - 1 %>">
+            Total Schedules
+          </th>
+          <td colspan="1"><%= schedule.length %></td>
+        </tfoot>
+      </table>
+    </main>
 
-  <footer>
-    <%- include("./partials/footer") %>
-  </footer>
-</body>
+    <footer><%- include("./partials/footer") %></footer>
+  </body>
 </html>
