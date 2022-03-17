@@ -23,15 +23,13 @@
         <tbody>
           <% schedule.forEach(schedule => { %>
           <tr>
-            <% for (const property in schedule) { %> <% if (property ===
-            "user_id") { %>
+            <% for (const property in schedule) { %>
             <td><%= schedule[property] %></td>
-            <% } else { %>
-            <td><%= schedule[property] %></td>
-            <% } %> <% } %>
+            <% } %>
           </tr>
           <% }) %>
         </tbody>
+
         <tfoot>
           <th colspan="<%= Object.keys(schedule[0]).length - 1 %>">
             Total Schedules
