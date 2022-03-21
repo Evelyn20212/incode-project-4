@@ -7,14 +7,15 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "create_db": "psql -U postgres -f sql/create_db.sql",
-    "create_tables": "psql -U postgres -d incode_project_03_chad_slater -f sql/create_tables.sql",
-    "seed_tables": "psql -U postgres -d incode_project_03_chad_slater -f sql/seed_tables.sql"
+    "create_tables": "psql -U postgres -d incode_project_04_chad_slater_evelyn_li -f sql/create_tables.sql",
+    "seed_tables": "psql -U postgres -d incode_project_04_chad_slater_evelyn_li -f sql/seed_tables.sql"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "pg-promise": "^10.11.1"

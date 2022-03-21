@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 
@@ -26,6 +28,7 @@ app.get("/", (req, res) => {
     .catch((error) => {
       console.log(error);
       res.render("error", {
+        title: "Error",
         errorCode: 500,
         errorMessage: error.message,
       });
