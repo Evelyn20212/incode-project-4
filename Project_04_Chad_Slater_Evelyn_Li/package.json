@@ -8,7 +8,8 @@
     "dev": "nodemon index.js",
     "create_db": "psql -U postgres -f sql/create_db.sql",
     "create_tables": "psql -U postgres -d incode_project_04_chad_slater_evelyn_li -f sql/create_tables.sql",
-    "seed_tables": "psql -U postgres -d incode_project_04_chad_slater_evelyn_li -f sql/seed_tables.sql"
+    "seed_tables": "psql -U postgres -d incode_project_04_chad_slater_evelyn_li -f sql/seed_tables.sql",
+    "setup_db": "npm run create_db && npm run create_tables && npm run seed_tables"
   },
   "keywords": [],
   "author": "",
