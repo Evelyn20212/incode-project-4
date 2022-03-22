@@ -9,11 +9,18 @@ const helper = require("./helper");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const bcryptjs = require('bcryptjs');
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+
+// Create initial encrypted password
+let salt = bcryptjs.genSaltSync(10);
+let hash = bcryptjs.hashSync('password', salt);
+console.log(hash) // $2a$10$yfjboBh5N1GcL.R2EzhVYu39MB7EsSiXCXckhFpiyPAs.FlUmFjhy
 
 // Get all schedules
 app.get("/", (req, res) => {
