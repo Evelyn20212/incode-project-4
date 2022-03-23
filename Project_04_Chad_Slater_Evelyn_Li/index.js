@@ -63,6 +63,12 @@ app.post("/new", (req, res) => {
     });
 });
 
+app.get("/login", (req, res) => {
+  res.render("pages/login", {
+    title: "Log in",
+  });
+});
+
 // 404
 app.get("*", (req, res) => {
   res.render("error", {
