@@ -9,14 +9,11 @@ const helper = require("./helper");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const bcryptjs = require('bcryptjs');
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-
 
 // Get all schedules
 app.get("/", (req, res) => {
