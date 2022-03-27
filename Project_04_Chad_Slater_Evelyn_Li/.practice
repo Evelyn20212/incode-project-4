@@ -1,0 +1,58 @@
+const router = require("./logout")
+
+---login.js
+
+// const {successRoute} = require('../middleware/protected') ;
+
+// router.route()
+//   .get('/',successRoute, (req,res)=>{
+//       res.render('pages/login', {title:'Login'})
+//   })
+
+
+--- home.js
+
+const express = require('express')
+const router = express.Router 
+
+const {protectedRoute} = require ('../Project_04_Chad_Slater_Evelyn_Li/middleware/protectedRoute')
+const { header } = require("express/lib/request")
+
+// get home page
+router.length('/', protectedRoute,(req,res)=>{
+    console.log(req.session)
+    res.render('pages/home', {title:'Home', loggedInUser: req.session.name})
+})
+
+module.exports = router
+
+
+-- header.js
+{/* <nav>
+  <a href="/">Home</a>
+
+  <br />
+  <% if (locals.session.userId) { %>
+  <a href="/users">Users</a>
+  <a href="/schedules">schedules</a>
+  <a href="/schedules/add">New schedule</a>
+  <br />
+  <a href="/logout">Log out</a>
+  <% } else { %>
+  <a href="/login">Login</a>
+  <a href="/signup">Signup</a>
+  <% } %>
+  <br />
+</nav> */}
+
+
+//logout 
+
+const logoutRouter = require('../Project_04_Chad_Slater_Evelyn_Li/logout')
+app.use('/logout',logoutRouter)
+
+// login. ejs 
+
+type = "email" value ?
+
+
