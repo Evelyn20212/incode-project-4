@@ -6,6 +6,9 @@ const db = require("../database");
 // Get new schedule form
 router
   .get("/", (req, res) => {
+    if (!req.session.userID) {
+      return res.redirect("/login");
+    }
     res.render("schedules-new", {
       title: "New Schedule",
     });
