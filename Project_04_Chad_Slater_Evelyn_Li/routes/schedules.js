@@ -6,6 +6,10 @@ const helper = require("../helper");
 
 // Get all schedules
 router.get("/", (req, res) => {
+  if (!req.session.userID) {
+    return res.redirect("/login");
+  }
+
   db.any("SELECT * FROM schedule")
     .then((schedule) => {
       res.render("schedules", {
