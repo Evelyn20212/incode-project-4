@@ -49,6 +49,16 @@ td {
   padding: 10px 50px;
 }
 
+tbody tr:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+td a {
+  display: block;
+  /* border: 1px solid black; */
+  /* padding: 16px; */
+}
+
 thead,
 tfoot {
   background-color: cornflowerblue;
