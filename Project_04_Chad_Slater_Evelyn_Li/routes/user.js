@@ -18,8 +18,6 @@ router.get("/:user_id", async (req, res) => {
     ]);
     const user = await db.one("SELECT * FROM users WHERE id = $1", [user_id]);
 
-    console.log(user);
-
     res.render("user", {
       helper,
       schedule,
