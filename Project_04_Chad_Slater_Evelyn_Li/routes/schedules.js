@@ -8,10 +8,6 @@ const { protectedRoute } = require("../middleware/protectedRoute");
 
 // Get all schedules
 router.get("/", protectedRoute, (req, res) => {
-  // if (!req.session.userID) {
-  //   return res.redirect("/login");
-  // }
-
   db.any("SELECT * FROM schedule")
     .then((schedule) => {
       res.render("schedules", {
@@ -21,7 +17,6 @@ router.get("/", protectedRoute, (req, res) => {
       });
     })
     .catch((error) => {
-      console.log(error);
       res.render("error", {
         title: "Error",
         errorCode: 500,
