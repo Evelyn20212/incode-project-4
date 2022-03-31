@@ -31,7 +31,6 @@ router
 
         req.session.userID = user.id;
         req.session.loggedIn = true;
-        console.log(req.session);
         return res.redirect("/");
       })
       .catch((error) => {
