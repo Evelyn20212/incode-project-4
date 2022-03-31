@@ -48,7 +48,7 @@ module.exports = router
 
 //logout 
 
-const logoutRouter = require('../Project_04_Chad_Slater_Evelyn_Li/logout')
+const logoutRouter = require('../Project_04_Chad_Slater_Evelyn_Li/Routes/logout')
 app.use('/logout',logoutRouter)
 
 // login. ejs 
