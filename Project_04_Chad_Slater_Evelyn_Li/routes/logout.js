@@ -1,7 +1,7 @@
 const express = require("express");
-const router = express.Router();
 const db = require("../database");
 const bcrypt = require("bcryptjs");
+const router = express.Router();
 
 router.get("/", (req, res) => {
   //remove the entire session

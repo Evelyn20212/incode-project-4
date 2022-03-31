@@ -27,6 +27,7 @@ app.use(
 
 function locals(req, res, next) {
   res.locals.session = req.session;
+  console.log(res.locals.session);
   next();
 }
 
@@ -42,11 +43,11 @@ app.use("/", schedulesRouter);
 const newSchedulesRouter = require("./routes/schedules-new");
 app.use("/new", newSchedulesRouter);
 
-const errorRouter = require("./routes/error");
-app.use("*", errorRouter);
-
 const logoutRouter = require("./routes/logout");
 app.use("/logout", logoutRouter);
+
+const errorRouter = require("./routes/error");
+app.use("*", errorRouter);
 
 app.listen(PORT, () => {
   console.log(`Schedule app listening at http://localhost:${PORT}/`);
