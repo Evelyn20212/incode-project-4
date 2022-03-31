@@ -3,7 +3,8 @@ const router = express.Router();
 
 const db = require("../database");
 
-// Get new schedule form
+// Get new schedule page
+// Post new schedule
 router
   .get("/", (req, res) => {
     if (!req.session.userID) {

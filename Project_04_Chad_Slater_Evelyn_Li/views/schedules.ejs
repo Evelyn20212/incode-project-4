@@ -24,7 +24,11 @@
           <% schedule.forEach(schedule => { %>
           <tr>
             <% for (const property in schedule) { %>
-            <td><%= schedule[property] %></td>
+            <td>
+              <a href="/user/<%= schedule.user_id %> ">
+                <%= schedule[property] %>
+              </a>
+            </td>
             <% } %>
           </tr>
           <% }) %>

@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require("../database");
 const bcrypt = require("bcryptjs");
 
+// Get login page
+// Post login attempt
 router
   .route("/")
   .get((req, res) => {
