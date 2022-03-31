@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("../database");
 const helper = require("../helper");
 
-// Get all schedules
+// Get single user and their schedules
 router.get("/:user_id", async (req, res) => {
   const user_id = req.params.user_id;
 
