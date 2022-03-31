@@ -3,8 +3,21 @@
     <li>
       <a href="/">Schedules</a>
     </li>
+
+    <% if ( locals.session.loggedIn ) { %>
     <li>
       <a href="/new">New schedule</a>
     </li>
+    <li>
+      <a href="/logout">Log Out</a>
+    </li>
+    <% } else { %>
+    <li>
+      <a href="/login">Log In</a>
+    </li>
+    <li>
+      <a href="/signup">Signup</a>
+    </li>
+    <% } %>
   </ul>
 </nav>
