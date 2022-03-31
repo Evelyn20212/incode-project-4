@@ -14,7 +14,6 @@ router
   })
   .post((req, res) => {
     const { email, password } = req.body;
-
     const cleanedEmail = email.toLowerCase().trim();
 
     db.oneOrNone("SELECT * FROM USERS WHERE email = $1", [cleanedEmail])
