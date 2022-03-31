@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../database");
+const { protectedRoute } = require("../middleware/protectedRoute");
 
 // Get new schedule page
 // Post new schedule
 router
-  .get("/", (req, res) => {
+  .get("/", protectedRoute, (req, res) => {
     if (!req.session.userID) {
       return res.redirect("/login");
     }
@@ -25,7 +26,6 @@ router
         res.redirect("/");
       })
       .catch((error) => {
-        console.log(error);
         res.render("error", {
           title: "Error",
           errorCode: 500,

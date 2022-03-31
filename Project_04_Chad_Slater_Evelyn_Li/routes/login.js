@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
+
 const db = require("../database");
 const bcrypt = require("bcryptjs");
+const { successRoute } = require("../middleware/protectedRoute");
 
 // Get login page
 // Post login attempt
 router
   .route("/")
-  .get((req, res) => {
+  .get(successRoute, (req, res) => {
     res.render("login", {
       title: "Log in",
     });

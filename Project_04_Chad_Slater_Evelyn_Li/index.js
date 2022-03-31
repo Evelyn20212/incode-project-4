@@ -26,7 +26,6 @@ app.use(
 // local middleware
 function locals(req, res, next) {
   res.locals.session = req.session;
-  console.log(res.locals.session);
   next();
 }
 

@@ -4,7 +4,6 @@ const protectedRoute = (req, res, next) => {
     res.clearCookie("mrcoffee_sid"); // from the front end
     res.status(401).redirect("/login");
   } else {
-    console.log(req.session);
     next();
   }
 };
