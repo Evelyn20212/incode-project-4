@@ -41,7 +41,7 @@ app.use("/", schedulesRouter);
 const scheduleManagementRouter = require("./routes/schedule-management");
 app.use("/schedule-management", scheduleManagementRouter);
 
-const signUpRouter = require("./routes/signup");
+const signupRouter = require("./routes/signup");
 app.use("/signup", signupRouter);
 
 const logoutRouter = require("./routes/logout");
