@@ -70,7 +70,7 @@ router
        if (user) {
           res.render("error", {
             title: "Invalid User",
-            errorMessage: "User already exists",
+            errorMessage: error.message
           });
     //if all valid and email not exist, has password and insert into db
       } else {
@@ -80,27 +80,22 @@ router
         db.none(
         "INSERT INTO users(surname,firstname, email, password) VALUES ($1,$2,$3,$4)", [surname,firstname,cleanedEmail,hash])
          .then(() => {
-           res.redirect('/schedules')
-           
-          console.log(user);
-        // TODO: intialize checkPassword with commented bcrypt code once we have hashed passwords in seed table
-          const checkPassword = password == user.password; 
-          bcrypt.compareSync(password, user.password);
-        })
+           res.redirect('/')
     
         .catch((error) => {
         res.render("error", {
           title: "User",
           error:"User cannot be added"
+        }); 
+        })     
+         .catch((error) => {
+          res.render("error", {
+          title: "Error",
+          errorCode:"500",
+          errorMessage:error.message
         });
-        });
-    }
-  });
-  .catch((error)=>{
-    res.render('error',{
-      error,
-      title:"User"
-  })
-})
+      
+
+ 
 
 module.exports = router;

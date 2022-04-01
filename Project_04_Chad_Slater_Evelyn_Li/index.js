@@ -16,38 +16,39 @@ const twentyFourHours = 1000 * 60 * 60 * 24;
 app.use(
   session({
     name: "mrcoffee_sid",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    secret: process.env.SESSION_SECRET,
     cookie: { maxAge: twentyFourHours },
   })
 );
 
 // local middleware
-
 function locals(req, res, next) {
   res.locals.session = req.session;
-  console.log(res.locals.session);
   next();
 }
 
 app.use(locals);
-// Routers
 
+// Routers
 const loginRouter = require("./routes/login");
 app.use("/login", loginRouter);
 
 const schedulesRouter = require("./routes/schedules");
 app.use("/", schedulesRouter);
 
-const newSchedulesRouter = require("./routes/schedules-new");
-app.use("/new", newSchedulesRouter);
+const scheduleManagementRouter = require("./routes/schedule-management");
+app.use("/schedule-management", scheduleManagementRouter);
 
 const signUpRouter = require("./routes/signup");
 app.use("/signup", signupRouter);
 
 const logoutRouter = require("./routes/logout");
 app.use("/logout", logoutRouter);
+
+const userRouter = require("./routes/user");
+app.use("/user", userRouter);
 
 const errorRouter = require("./routes/error");
 app.use("*", errorRouter);

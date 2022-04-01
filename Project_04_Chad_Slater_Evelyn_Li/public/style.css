@@ -49,12 +49,21 @@ td {
   padding: 10px 50px;
 }
 
+tbody tr:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+td a {
+  display: block;
+}
+
 thead,
 tfoot {
   background-color: cornflowerblue;
+  font-weight: bold;
 }
 
-tfoot th {
+tfoot td:first-of-type {
   text-align: right;
 }
 
