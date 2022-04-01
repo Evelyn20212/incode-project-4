@@ -38,8 +38,8 @@ app.use("/login", loginRouter);
 const schedulesRouter = require("./routes/schedules");
 app.use("/", schedulesRouter);
 
-const newSchedulesRouter = require("./routes/schedules-new");
-app.use("/new", newSchedulesRouter);
+const scheduleManagementRouter = require("./routes/schedule-management");
+app.use("/schedule-management", scheduleManagementRouter);
 
 const logoutRouter = require("./routes/logout");
 app.use("/logout", logoutRouter);
