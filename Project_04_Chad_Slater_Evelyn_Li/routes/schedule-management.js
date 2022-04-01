@@ -7,10 +7,8 @@ const { protectedRoute } = require("../middleware/protectedRoute");
 // Get new schedule page
 // Post new schedule
 router
+  .route("/")
   .get("/", protectedRoute, (req, res) => {
-    if (!req.session.userID) {
-      return res.redirect("/login");
-    }
     res.render("schedule-management", {
       title: "New Schedule",
     });
@@ -19,8 +17,8 @@ router
     const { day_of_week, start_time, end_time } = req.body;
 
     db.none(
-      "INSERT INTO schedules(day_of_week, start_time, end_time) VALUES($2, $3, $4)",
-      [day_of_week, start_time, end_time]
+      "INSERT INTO schedule(user_id, day_of_week, start_time, end_time) VALUES($1, $2, $3, $4)",
+      [user_id, day_of_week, start_time, end_time]
     )
       .then(() => {
         res.redirect("/schedule-management");
