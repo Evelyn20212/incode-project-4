@@ -43,6 +43,9 @@ app.use("/", schedulesRouter);
 const newSchedulesRouter = require("./routes/schedules-new");
 app.use("/new", newSchedulesRouter);
 
+const signUpRouter = require("./routes/signup");
+app.use("/signup", signupRouter);
+
 const logoutRouter = require("./routes/logout");
 app.use("/logout", logoutRouter);
 
