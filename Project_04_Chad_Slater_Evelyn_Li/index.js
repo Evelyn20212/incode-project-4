@@ -23,6 +23,14 @@ app.use(
   })
 );
 
+// local middleware
+function locals(req, res, next) {
+  res.locals.session = req.session;
+  next();
+}
+
+app.use(locals);
+
 // Routers
 const loginRouter = require("./routes/login");
 app.use("/login", loginRouter);
@@ -32,6 +40,9 @@ app.use("/", schedulesRouter);
 
 const scheduleManagementRouter = require("./routes/schedule-management");
 app.use("/schedule-management", scheduleManagementRouter);
+
+const logoutRouter = require("./routes/logout");
+app.use("/logout", logoutRouter);
 
 const userRouter = require("./routes/user");
 app.use("/user", userRouter);
