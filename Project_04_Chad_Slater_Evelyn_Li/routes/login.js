@@ -20,8 +20,7 @@ router
 
     db.oneOrNone("SELECT * FROM USERS WHERE email = $1", [cleanedEmail])
       .then((user) => {
-        // TODO: intialize checkPassword with commented bcrypt code once we have hashed passwords in seed table
-        const checkPassword = password == user.password; // bcrypt.compareSync(password, user.password);
+        checkPassword = bcrypt.compareSync(password, user.password);
 
         if (!checkPassword) {
           res.render("error", {
