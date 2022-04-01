@@ -60,9 +60,10 @@ td a {
 thead,
 tfoot {
   background-color: cornflowerblue;
+  font-weight: bold;
 }
 
-tfoot th {
+tfoot td:first-of-type {
   text-align: right;
 }
 

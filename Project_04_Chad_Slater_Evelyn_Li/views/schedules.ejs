@@ -35,10 +35,14 @@
         </tbody>
 
         <tfoot>
-          <th colspan="<%= Object.keys(schedule[0]).length - 1 %>">
-            Total Schedules
-          </th>
-          <td colspan="1"><%= schedule.length %></td>
+          <tr>
+            <% if (schedule[0]) { %>
+            <td colspan="<%= Object.keys(schedule[0]).length - 1 %>">
+              Total Schedules
+            </td>
+            <td colspan="1"><%= schedule.length %></td>
+            <% } %>
+          </tr>
         </tfoot>
       </table>
     </main>
