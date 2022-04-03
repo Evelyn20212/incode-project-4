@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../database");
-const helper = require("../helper");
 const { protectedRoute } = require("../middleware/protectedRoute");
 
 // Get single user and their schedules
@@ -16,7 +15,6 @@ router.get("/:user_id", protectedRoute, async (req, res) => {
     const user = await db.one("SELECT * FROM users WHERE id = $1", [user_id]);
 
     res.render("user", {
-      helper,
       schedule,
       title: `User ${user_id}`,
       user,
