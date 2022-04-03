@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../database");
-const helper = require("../helper");
 const { protectedRoute } = require("../middleware/protectedRoute");
 
 // Get new schedule page
@@ -15,7 +14,6 @@ router
         res.render("schedule-management", {
           title: "Schedule Management",
           schedule,
-          helper,
         });
       })
       .catch((error) => {
